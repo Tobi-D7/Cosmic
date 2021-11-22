@@ -33,7 +33,7 @@ jobs:
           #cp -r ../lua/*.md extlibs/lua/
           #RenderD7
           cd ..
-          git clone https://github.com/yout-Waifu/sleepy-discord.git
+          git clone https://github.com/yourWaifu/sleepy-discord.git
           cd Cosmic
           mkdir -p deps/
           mkdir -p deps/sleepy-discord
