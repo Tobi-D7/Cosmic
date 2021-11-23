@@ -107,7 +107,7 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v1
         with:
-          path: ./${{ matrix.config.artifact }}
+          path: ../${{ matrix.config.artifact }}
           name: ${{ matrix.config.artifact }}
 
       - name: Upload release asset
