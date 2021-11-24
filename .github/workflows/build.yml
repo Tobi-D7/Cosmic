@@ -93,7 +93,7 @@ jobs:
           mkdir -p ~/artifacts/
           cp ${{ matrix.config.artifact }} ~/artifacts/
           cd ../
-          zip --junk-paths ${{ matrix.config.fname }}.zip build/
+          zip --junk-paths build/ ${{ matrix.config.fname }}.zip
          # ls -R ~/artifacts/
     #  - name: Build
    #     shell: bash
