@@ -92,7 +92,7 @@ jobs:
           make
           mkdir -p ~/artifacts/
           cp ${{ matrix.config.fname }} ~/artifacts/
-          ls -R ~/artifacts/
+         # ls -R ~/artifacts/
     #  - name: Build
    #     shell: bash
    #     run: cmake --build . --config ${{ matrix.config.build_type }}
@@ -105,13 +105,13 @@ jobs:
         shell: bash
         working-directory: build
         run: |
-          ls -R
+         # ls -R
           
           ${{ matrix.config.archiver }} ../${{ matrix.config.artifact }} .
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
-          path: ../../../artifacts/*
+          path: ~/artifacts/*
           name: ${{ matrix.config.artifact }}
 
       - name: Upload release asset
