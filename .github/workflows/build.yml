@@ -91,7 +91,7 @@ jobs:
           cmake ..
           make
           mkdir -p ~/artifacts/
-          cp ${{ matrix.config.fname }} ~/artifacts/
+          cp ${{ matrix.config.artifact }} ~/artifacts/
           cd ../
           zip --junk-paths ${{ matrix.config.fname }}.zip build/
          # ls -R ~/artifacts/
