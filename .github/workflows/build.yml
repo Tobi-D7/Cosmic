@@ -103,18 +103,18 @@ jobs:
         #shell: bash
         #run: cmake --install . --strip
 
-      - name: Pack
-        shell: bash
-        working-directory: build
-        run: |
+    #  - name: Pack
+      #  shell: bash
+     #   working-directory: build
+      #  run: |
          # ls -R
           
-          ${{ matrix.config.archiver }} ../${{ matrix.config.artifact }} .
-    #  - name: Upload
-      #  uses: actions/upload-artifact@v1
-       # with:
-       #   path: ~/artifacts/*
-          #name: ${{ matrix.config.artifact }}
+      #    ${{ matrix.config.archiver }} ../${{ matrix.config.artifact }} .
+      - name: Upload
+        uses: actions/upload-artifact@v1
+        with:
+          path: ~/artifacts/*
+          name: ${{ matrix.config.artifact }}
 
       - name: Upload release asset
         if: github.event_name == 'release' && (github.event.action == 'published' || github.event.action == 'created')
