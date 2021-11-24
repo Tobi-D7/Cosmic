@@ -24,6 +24,7 @@ jobs:
             name: "Windows Latest MSVC",
             os: windows-latest,
             artifact: "windows_msvc",
+            fname: "Cosmic.exe",
             build_type: "Release",
             cc: "cl",
             cxx: "cl",
@@ -35,6 +36,7 @@ jobs:
             name: "Windows Latest MinGW",
             os: windows-latest,
             artifact: "windows_mingw",
+            fname: "Cosmic.exe",
             build_type: "Release",
             cc: "gcc",
             cxx: "g++",
@@ -45,6 +47,7 @@ jobs:
             name: "Ubuntu_Latest_GCC",
             os: ubuntu-latest,
             artifact: "ubuntu_gcc",
+            fname: "Cosmic",
             build_type: "Release",
             cc: "gcc",
             cxx: "g++",
@@ -103,7 +106,7 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v1
         with:
-          path: ./build/*
+          path: ./build/${{ matrix.config.fname }}
           name: ${{ matrix.config.artifact }}
 
       - name: Upload release asset
