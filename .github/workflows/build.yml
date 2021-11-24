@@ -1,4 +1,5 @@
 
+
 name: CMake Build Matrix
 
 # Controls when the action will run. Triggers the workflow on push
@@ -91,6 +92,7 @@ jobs:
           make
           mkdir -p ~/artifacts/
           cp ${{ matrix.config.fname }} ~/artifacts/
+          ls -R ~/artifacts/
     #  - name: Build
    #     shell: bash
    #     run: cmake --build . --config ${{ matrix.config.build_type }}
