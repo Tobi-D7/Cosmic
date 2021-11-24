@@ -83,16 +83,12 @@ jobs:
         shell: bash
         run: |
           mkdir build
-          mkdir instdir
-          cmake \
-            -S . \
-            -B . \
-            -DCMAKE_BUILD_TYPE=${{ matrix.config.build_type }} \
-            -G "${{ matrix.config.generators }}" \
-            -DCMAKE_INSTALL_PREFIX:PATH=instdir
-      - name: Build
-        shell: bash
-        run: cmake --build . --config ${{ matrix.config.build_type }}
+          cd build
+          cmake ..
+          make
+    #  - name: Build
+   #     shell: bash
+   #     run: cmake --build . --config ${{ matrix.config.build_type }}
 
     #  - name: Install Strip
         #shell: bash
@@ -100,7 +96,7 @@ jobs:
 
       - name: Pack
         shell: bash
-        working-directory: instdir
+        working-directory: build
         run: |
           ls -R
           ${{ matrix.config.archiver }} ../${{ matrix.config.artifact }} .
