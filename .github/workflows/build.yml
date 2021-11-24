@@ -102,11 +102,13 @@ jobs:
         working-directory: build
         run: |
           ls -R
+          mkdir ~/artifacts
+          cp ${{ matrix.config.fname }} ~/artifacts
           ${{ matrix.config.archiver }} ../${{ matrix.config.artifact }} .
       - name: Upload
         uses: actions/upload-artifact@v1
         with:
-          path: ./build/${{ matrix.config.fname }}
+          path: ~/artifacts
           name: ${{ matrix.config.artifact }}
 
       - name: Upload release asset
