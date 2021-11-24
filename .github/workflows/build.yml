@@ -110,19 +110,29 @@ jobs:
          # ls -R
           
       #    ${{ matrix.config.archiver }} ../${{ matrix.config.artifact }} .
-      - name: Upload
-        uses: actions/upload-artifact@v1
+    #  - name: Upload
+      #  uses: actions/upload-artifact@v1
+     #   with:
+      #    path: ~/artifacts/*
+      #    name: ${{ matrix.config.artifact }}
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          path: ~/artifacts/*
-          name: ${{ matrix.config.artifact }}
-
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
       - name: Upload release asset
         if: github.event_name == 'release' && (github.event.action == 'published' || github.event.action == 'created')
         uses: actions/upload-release-asset@v1
+        working-directory: build
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./${{ matrix.config.fname }}.zip
+          asset_path: ./${{ matrix.config.fname }}
           asset_name: ${{ matrix.config.artifact }}.zip
           asset_content_type: application/zip
