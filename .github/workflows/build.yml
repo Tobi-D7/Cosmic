@@ -89,6 +89,8 @@ jobs:
           cd build
           cmake ..
           make
+          mkdir -p ~/artifacts/
+          cp ${{ matrix.config.fname }} ~/artifacts/
     #  - name: Build
    #     shell: bash
    #     run: cmake --build . --config ${{ matrix.config.build_type }}
@@ -102,8 +104,7 @@ jobs:
         working-directory: build
         run: |
           ls -R
-          mkdir -p ~/artifacts/
-          cp ${{ matrix.config.fname }} ~/artifacts/
+          
           ${{ matrix.config.archiver }} ../${{ matrix.config.artifact }} .
       - name: Upload
         uses: actions/upload-artifact@v1
