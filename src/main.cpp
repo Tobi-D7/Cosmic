@@ -9,7 +9,7 @@ public:
 	}
 };
 
-int main(int argc[], char* argv[]) {
+int main(int argc, char* argv[]) {
 	MyClientClass client(argv[1], SleepyDiscord::USER_CONTROLED_THREADS);
 	client.run();
 }
