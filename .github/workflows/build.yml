@@ -98,7 +98,7 @@ jobs:
           mkdir -p ~/artifacts
           cp ${{ matrix.config.fname }} ~/artifacts
           #cd ../
-          zip ${{ matrix.config.artifact }}.zip build/
+          #zip ${{ matrix.config.artifact }}.zip build/
          # ls -R ~/artifacts/
     #  - name: Build
    #     shell: bash
