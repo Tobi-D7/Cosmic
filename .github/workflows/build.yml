@@ -26,7 +26,7 @@ jobs:
             os: windows-latest,
             artifact: "windowsvc",
             fname: "*",
-            path: "bin/Debug",
+            path: "x64/Debug",
             build_type: "Release",
             cc: "cl",
             cxx: "cl",
