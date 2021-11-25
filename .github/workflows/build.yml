@@ -26,7 +26,7 @@ jobs:
             os: windows-latest,
             artifact: "windowsvc",
             fname: "*",
-            path: "x64/Release",
+            path: "Release",
             build_type: "Release",
             cc: "cl",
             cxx: "cl",
@@ -51,7 +51,7 @@ jobs:
             os: ubuntu-latest,
             artifact: "ubuntu",
             fname: "Cosmic",
-            path: "insdir",
+            path: ".",
             build_type: "Release",
             cc: "gcc",
             cxx: "g++",
@@ -96,7 +96,7 @@ jobs:
             -B . \
             -DCMAKE_BUILD_TYPE=${{ matrix.config.build_type }} \
             -G "${{ matrix.config.generators }}" \
-            -DCMAKE_INSTALL_PREFIX:PATH=instdir
+         
           cmake --build . --config ${{ matrix.config.build_type }}
           #make
           mkdir -p ~/artifacts
@@ -110,9 +110,9 @@ jobs:
    #     shell: bash
    #     run: cmake --build . --config ${{ matrix.config.build_type }}
 
-      - name: Install Strip
-        shell: bash
-        run: cmake --install . --strip
+     # - name: Install Strip
+      #  shell: bash
+    #    run: cmake --install . --strip
 
      # - name: Pack
       #  shell: bash
