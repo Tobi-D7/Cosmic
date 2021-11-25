@@ -99,7 +99,7 @@ jobs:
           cmake --build . --config ${{ matrix.config.build_type }}
           #make
           mkdir -p ~/artifacts
-          dir /s
+          dir 
           cp ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
           
           #cd ../
