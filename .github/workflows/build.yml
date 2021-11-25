@@ -25,7 +25,7 @@ jobs:
             name: "Windows Latest MSVC",
             os: windows-latest,
             artifact: "windowsvc",
-            fname: "Cosmic.exe",
+            fname: "*",
             path: "bin/Debug",
             build_type: "Release",
             cc: "cl",
