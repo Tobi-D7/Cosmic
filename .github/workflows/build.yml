@@ -90,8 +90,8 @@ jobs:
           cd build
           cmake ..
           make
-          mkdir -p ~/artifacts/
-          cp ${{ matrix.config.fname }} ~/artifacts/
+          mkdir -p ~/artifacts
+          cp ${{ matrix.config.fname }} ~/artifacts
           cd ../
           zip ${{ matrix.config.artifact }}.zip build/
          # ls -R ~/artifacts/
