@@ -51,7 +51,7 @@ jobs:
             os: ubuntu-latest,
             artifact: "ubuntu",
             fname: "Cosmic",
-            path: ".",
+            path: "insdir",
             build_type: "Release",
             cc: "gcc",
             cxx: "g++",
@@ -102,6 +102,9 @@ jobs:
          # mkdir -p ~/artifacts
           #dir 
           #cp -r ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
+          mkdir -p ~/artifacts
+          dir 
+          cp -r ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
           
           #cd ../
           #zip ${{ matrix.config.artifact }}.zip build/
@@ -114,13 +117,13 @@ jobs:
         shell: bash
         run: cmake --install . --strip
 
-      - name: Pack
-        shell: bash
-        working-directory: insdir
-        run: |
-          mkdir -p ~/artifacts
-          dir 
-          cp -r ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
+     # - name: Pack
+      #  shell: bash
+      #  working-directory: insdir
+      #  run: |
+         # mkdir -p ~/artifacts
+         # dir 
+       #   cp -r ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
           
           
       #    ${{ matrix.config.archiver }} ../${{ matrix.config.artifact }} .
