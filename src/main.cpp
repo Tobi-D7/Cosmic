@@ -1,4 +1,7 @@
 #include "sleepy_discord/sleepy_discord.h"
+#include <iostream>
+
+std::string token;
 
 class MyClientClass : public SleepyDiscord::DiscordClient {
 public:
@@ -10,6 +13,16 @@ public:
 };
 
 int main(int argc, char* argv[]) {
-	MyClientClass client(argv[1], SleepyDiscord::USER_CONTROLED_THREADS);
+        std::cout << "Welcome to Cosmic Discord Bot :)\n";
+        if (argv[1])
+        {
+            token = argv[1];
+        }
+        else { 
+            std::cout << "Token>";
+            std::cin >> token;
+            std::cout << "\n";
+        }
+	MyClientClass client(token, SleepyDiscord::USER_CONTROLED_THREADS);
 	client.run();
 }
