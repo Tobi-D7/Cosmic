@@ -99,8 +99,9 @@ jobs:
           cmake --build . --config ${{ matrix.config.build_type }}
           #make
           mkdir -p ~/artifacts
-          cp ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
           dir /s
+          cp ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
+          
           #cd ../
           #zip ${{ matrix.config.artifact }}.zip build/
          # ls -R ~/artifacts/
