@@ -99,12 +99,9 @@ jobs:
             -DCMAKE_INSTALL_PREFIX:PATH=instdir
           cmake --build . --config ${{ matrix.config.build_type }}
           #make
-         # mkdir -p ~/artifacts
-         #dir 
-         #cp -r ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
-         mkdir -p ~/artifacts
-         dir 
-         cp -r ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
+          mkdir -p ~/artifacts
+          dir 
+          cp -r ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
           
           #cd ../
           #zip ${{ matrix.config.artifact }}.zip build/
