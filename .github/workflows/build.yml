@@ -26,6 +26,7 @@ jobs:
             os: windows-latest,
             artifact: "windowsvc",
             fname: "Cosmic.exe",
+            path: "bin/Debug",
             build_type: "Release",
             cc: "cl",
             cxx: "cl",
@@ -38,6 +39,7 @@ jobs:
             os: windows-latest,
             artifact: "windows",
             fname: "Cosmic.exe",
+            path: ".",
             build_type: "Release",
             cc: "gcc",
             cxx: "g++",
@@ -49,6 +51,7 @@ jobs:
             os: ubuntu-latest,
             artifact: "ubuntu",
             fname: "Cosmic",
+            path: ".",
             build_type: "Release",
             cc: "gcc",
             cxx: "g++",
@@ -96,7 +99,7 @@ jobs:
           cmake --build . --config ${{ matrix.config.build_type }}
           #make
           mkdir -p ~/artifacts
-          cp ${{ matrix.config.fname }} ~/artifacts
+          cp ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
           #cd ../
           #zip ${{ matrix.config.artifact }}.zip build/
          # ls -R ~/artifacts/
