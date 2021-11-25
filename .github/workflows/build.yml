@@ -88,7 +88,11 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake ..
+          cmake \
+            -S . \
+            -B . \
+            -DCMAKE_BUILD_TYPE=${{ matrix.config.build_type }} \
+            -G "${{ matrix.config.generators }}" \
           make
           mkdir -p ~/artifacts
           cp ${{ matrix.config.fname }} ~/artifacts
