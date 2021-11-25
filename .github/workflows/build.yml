@@ -95,12 +95,13 @@ jobs:
             -S . \
             -B . \
             -DCMAKE_BUILD_TYPE=${{ matrix.config.build_type }} \
-            -G "${{ matrix.config.generators }}"
+            -G "${{ matrix.config.generators }}" \
+            -DCMAKE_INSTALL_PREFIX:PATH=instdir
           cmake --build . --config ${{ matrix.config.build_type }}
           #make
-          mkdir -p ~/artifacts
-          dir 
-          cp -r ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
+         # mkdir -p ~/artifacts
+          #dir 
+          #cp -r ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
           
           #cd ../
           #zip ${{ matrix.config.artifact }}.zip build/
@@ -109,15 +110,18 @@ jobs:
    #     shell: bash
    #     run: cmake --build . --config ${{ matrix.config.build_type }}
 
-    #  - name: Install Strip
-        #shell: bash
-        #run: cmake --install . --strip
+      - name: Install Strip
+        shell: bash
+        run: cmake --install . --strip
 
-    #  - name: Pack
-      #  shell: bash
-     #   working-directory: build
-      #  run: |
-         # ls -R
+      - name: Pack
+        shell: bash
+        working-directory: insdir
+        run: |
+          mkdir -p ~/artifacts
+          dir 
+          cp -r ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
+          
           
       #    ${{ matrix.config.archiver }} ../${{ matrix.config.artifact }} .
       - name: Upload
