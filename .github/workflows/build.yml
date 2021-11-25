@@ -26,7 +26,7 @@ jobs:
             os: windows-latest,
             artifact: "windowsvc",
             fname: "*",
-            path: "x64",
+            path: "x64/Release",
             build_type: "Release",
             cc: "cl",
             cxx: "cl",
@@ -100,7 +100,7 @@ jobs:
           #make
           mkdir -p ~/artifacts
           dir 
-          cp ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
+          cp -r ${{ matrix.config.path }}/${{ matrix.config.fname }} ~/artifacts
           
           #cd ../
           #zip ${{ matrix.config.artifact }}.zip build/
