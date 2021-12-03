@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
         else { 
             std::cout << "Token>";
             std::cin >> token;
-            std::cout << "\n";
+            std::cout << "Token set.\n";
         }
 	MyClientClass client(token, SleepyDiscord::USER_CONTROLED_THREADS);
 	client.run();
