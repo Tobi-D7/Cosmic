@@ -34,18 +34,18 @@ jobs:
             archiver: "7z a",
             generators: "Visual Studio 16 2019"
           }
-        - {
-            name: "Windows Latest MinGW",
-            os: windows-latest,
-            artifact: "windows",
-            fname: "Cosmic.exe",
-            path: ".",
-            build_type: "Debug",
-            cc: "gcc",
-            cxx: "g++",
-            archiver: "7z a",
-            generators: "Ninja"
-          }
+      #  - {
+          #  name: "Windows Latest MinGW",
+           # os: windows-latest,
+           # artifact: "windows",
+           # fname: "Cosmic.exe",
+           # path: ".",
+            #build_type: "Debug",
+            #cc: "gcc",
+          #  cxx: "g++",
+           # archiver: "7z a",
+          #  generators: "Ninja"
+          #}
         - {
             name: "Ubuntu_Latest_GCC",
             os: ubuntu-latest,
